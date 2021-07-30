@@ -12,15 +12,15 @@ int main()
 		int _move = move / 2;
 		int i = 1, result = 0;;
 		cnt[c] = 0;
-		while (1) {
-			if (result >= move) break;
+		while (result < move) {
 			result += i;
 			if (result <= _move) i++;
-			else if (result > _move) {
-				if (move - result > 3) i--;
-			}
+			else if (move - result > 3) i--;
 			cnt[c]++;
 		}
 	}
 	for(int i=0;i<t;i++) cout << ++cnt[i] << "\n";
+
+	delete[] cnt;
+	return 0;
 }
