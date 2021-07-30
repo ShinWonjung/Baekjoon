@@ -32,7 +32,10 @@ int main()
 		_big.pop_back();
 		_small.pop_back();
 
-		if (_big.empty()) break;
+		if (_big.empty()) {
+			if (up == 1) _result.push_back('1');
+			break;
+		}
 	}
 	for (int i = _result.size() - 1; i >= 0; i--) cout << _result[i];
 	
