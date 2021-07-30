@@ -12,19 +12,28 @@ int main()
 	string& small = b.length() <= a.length() ? b : a;
 
 	vector<char> _big, _small;
-	/*if (big.length() != small.length()) {
-		for (int i = small.length(); i < big.length(); i++) {
-			_small.push_back(0);
-		}
-	}*/
 	int minus = big.length() - small.length();
+
 	for (int i = 0; i < big.length(); i++) {
 		_big.push_back(big[i]);
 		if (i < minus) _small.push_back('0');
 		else _small.push_back(small[i - minus]);
 	}
-	for (int i = 0; i < _big.size(); i++)cout << _big[i];
-	cout << "\n" << _big.size() << "\n" << _small.size() << "\n";
-	for (int i = 0; i < _small.size(); i++)cout << _small[i];
+
+	int up = 0;
+	vector<char> _result;
+	for (int i = 0;; i++) {
+		int _big_i = _big.back() - '0';
+		int _small_i = _small.back() - '0';
+		int result = _big_i + _small_i + up;
+		up = result / 10;
+		_result.push_back((result % 10) + '0');
+
+		_big.pop_back();
+		_small.pop_back();
+
+		if (_big.empty()) break;
+	}
+	for (int i = _result.size() - 1; i >= 0; i--) cout << _result[i];
 	
 }
