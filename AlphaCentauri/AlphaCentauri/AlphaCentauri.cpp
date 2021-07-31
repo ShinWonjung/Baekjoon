@@ -3,24 +3,24 @@ using namespace std;
 
 int main()
 {
-	int t, x, y;
+	int t;
 	cin >> t;
-	int* cnt = new int[t];
-	for (int c = 0; c < t; c++) {
+	int* i = new int[t] {0, };
+	for (int time = 0; time < t; time++) {
+		int x, y, result = 1;
 		cin >> x >> y;
-		int move = y - x - 1;
-		int _move = move / 2;
-		int i = 1, result = 0;;
-		cnt[c] = 0;
-		while (result < move) {
-			result += i;
-			if (result <= _move) i++;
-			else if (move - result > 3) i--;
-			cnt[c]++;
+		double circle = 0.5;
+		while (1) {
+			circle += 0.5;
+			i[time]++;
+			if (y - x < result) break;
+			for (int j = 0; j < (int)circle; j++) {
+				if (y - x >= result) result ++;
+				else break;
+			}
 		}
 	}
-	for(int i=0;i<t;i++) cout << ++cnt[i] << "\n";
-
-	delete[] cnt;
+	for (int time = 0; time < t; time++) cout << --i[time] << "\n";
+	delete[] i;
 	return 0;
 }
