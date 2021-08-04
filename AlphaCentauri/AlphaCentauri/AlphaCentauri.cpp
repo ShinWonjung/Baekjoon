@@ -5,22 +5,25 @@ int main()
 {
 	int t;
 	cin >> t;
-	int* i = new int[t] {0, };
-	for (int time = 0; time < t; time++) {
-		int x, y, result = 1;
+	int* cnt = new int[t] {0, };
+	for (int i = 0; i < t; i++) {
+		int x, y, n;
 		cin >> x >> y;
-		double circle = 0.5;
+		if ((y - x) % 2 == 1) n = (y - x) + 1;
+		else n = (y - x);
+		int sum = 0;
+		int result = 0;
 		while (1) {
-			circle += 0.5;
-			i[time]++;
-			if (y - x < result) break;
-			for (int j = 0; j < (int)circle; j++) {
-				if (y - x >= result) result ++;
-				else break;
-			}
+			sum++;
+			result += sum;
+			if (n / 2 > result) cnt[i]++;
+			else break;
 		}
+		cnt[i] *= 2;
+		if (n < (result * 2 - cnt[i])) cnt[i]--;
 	}
-	for (int time = 0; time < t; time++) cout << --i[time] << "\n";
-	delete[] i;
+
+	for (int i = 0; i < t; i++) cout << cnt[i] << "\n";
+	delete[] cnt;
 	return 0;
 }
