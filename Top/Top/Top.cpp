@@ -5,18 +5,33 @@ int main()
 	int n;
 	cin >> n;
 	int* arr = new int[n];
-	for (int i = 0; i < n; i++) cin >> arr[i];
-	cout << 0 << ' ';
-	for (int i = 1; i < n; i++) {
-		int j = i - 1;
-		while (1) {
-			if (arr[i] < arr[j]) { cout << j + 1 << ' '; break; }
-			if (j == 0) { cout << 0 << ' '; break; }
-			j--;
+	int* result = new int[n] {0};
+	int top = 0, _top = 0;
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+		if (arr[i] > top) {
+			top = arr[i];
+			_top = i;
+		}
+		else if (arr[i] == top) {
+			result[i] = _top;
+			top = arr[i];
+			_top = i;
+		}
+		else {
+			for (int j = i - 1; j >= _top; j--) {
+				if (arr[i] < arr[j]) {
+					result[i] = j + 1;
+					break;
+				}
+			}
 		}
 	}
-	//arr[0] = 0;
-	//for (int i = 0; i < n; i++) cout << arr[i] << ' ';
+	for (int i = 0; i < n; i++) {
+		if (result[i] != 0) cout << result[i] << ' ';
+		else cout << 0 << ' ';
+	}
 	delete[] arr;
+	delete[] result;
 	return 0;
 }
