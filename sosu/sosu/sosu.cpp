@@ -1,7 +1,8 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 #define LEN 1000001
-char arr[LEN];
+int arr[LEN];
 
 int main()
 {
@@ -11,14 +12,22 @@ int main()
 
 	int m, n;
 	cin >> m >> n;
-	for (int i = m; i <= n; i++)
+	for (int i = 0; i <= n; i++)
 	{
 		arr[i] = i;
 	}
-	for (int i = m; i <= n; i++)
+	for (int i = 2; i <= sqrt(n); i++)
 	{
 		if (arr[i] == 0) continue;
-		for()
+		for (int j = 2; j * i <= n; j++)
+		{
+			arr[j * i] = 0;
+		}
+	}
+	for (int i = m; i <= n; i++)
+	{
+		if (i == 1) continue;
+		if (arr[i] != 0) cout << arr[i] << '\n';
 	}
 	return 0;
 }
