@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int lansun(vector<int>lan, int n)
+int lansun(vector<int>lan, long long n)
 {
 	int answer = 0;
 	for (int i = 0; i < lan.size(); i++)
@@ -17,37 +17,46 @@ int main()
 	int k, n;
 	cin >> k >> n;
 
+	int max = 0;
 	vector<int>lan;
-	int sum = 0;
 	for (int i = 0; i < k; i++)
 	{
 		int x;
 		cin >> x;
 		lan.push_back(x);
-		sum += x;
+		if (max < x)
+			max = x;
 	}
-	int right = sum / n;
-	int left = 1;
-	int mid;
-	while (1)
+	long long right = max;
+	long long left = 1;
+	long long mid;
+	int num;
+	while (left <= right)
 	{
 		mid = (left + right) / 2;
-		int num = lansun(lan, mid);
+		num = lansun(lan, mid);
 
 		if (num == n)
-			break;
+		{
+			if (lansun(lan, mid + 1) != n)
+				break;
+			else
+				left = mid + 1;
+		}
 		else if (num < n)
 			right = mid - 1;
 		else
 			left = mid + 1;
 	}
-	while (1)
+	while (num != n)
 	{
-		int num = lansun(lan, --right);
-		if (num == n)
+		if (lansun(lan, mid--) >= n)
+		{
+			mid++;
 			break;
+		}
 	}
-	cout << right;
+	cout << mid;
 
 	return 0;
 }
