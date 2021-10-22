@@ -1,34 +1,32 @@
 #include <iostream>
-#include <queue>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-struct compare
+bool compare(pair<int, int>p1, pair<int, int>p2)
 {
-	bool operator()(pair<int, int>p1, pair<int, int>p2)
-	{
-		if (p1.second != p2.second)
-			return p1.second > p2.second;
-		else
-			return p1.first > p2.first;
-	}
-};
+	if (p1.second != p2.second)
+		return p1.second < p2.second;
+	else
+		return p1.first < p2.first;
+}
 
 int main()
 {
 	int n;
 	cin >> n;
-	priority_queue<pair<int, int>,vector<pair<int,int>>,compare>q;
+	vector<pair<int, int>>vec;
 	for (int i = 0; i < n; i++)
 	{
 		int n1, n2;
 		cin >> n1 >> n2;
-		q.push(make_pair(n1, n2));
+		vec.push_back(make_pair(n1, n2));
 	}
-	while (!q.empty())
+	sort(vec.begin(), vec.end(), compare);
+	for (int i = 0; i < vec.size(); i++)
 	{
-		cout << q.top().first << ' ' << q.top().second << '\n';
-		q.pop();
+		cout << vec[i].first << ' ' << vec[i].second << '\n';
 	}
 	return 0;
 }
