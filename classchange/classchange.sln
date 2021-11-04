@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "classchange", "classchange\classchange.vcxproj", "{DC26F22F-02AC-4A87-A606-994D24E41A04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC26F22F-02AC-4A87-A606-994D24E41A04}.Debug|x64.ActiveCfg = Debug|x64
+		{DC26F22F-02AC-4A87-A606-994D24E41A04}.Debug|x64.Build.0 = Debug|x64
+		{DC26F22F-02AC-4A87-A606-994D24E41A04}.Debug|x86.ActiveCfg = Debug|Win32
+		{DC26F22F-02AC-4A87-A606-994D24E41A04}.Debug|x86.Build.0 = Debug|Win32
+		{DC26F22F-02AC-4A87-A606-994D24E41A04}.Release|x64.ActiveCfg = Release|x64
+		{DC26F22F-02AC-4A87-A606-994D24E41A04}.Release|x64.Build.0 = Release|x64
+		{DC26F22F-02AC-4A87-A606-994D24E41A04}.Release|x86.ActiveCfg = Release|Win32
+		{DC26F22F-02AC-4A87-A606-994D24E41A04}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A1DD206-486B-416A-A6DD-287A295362B4}
+	EndGlobalSection
+EndGlobal
